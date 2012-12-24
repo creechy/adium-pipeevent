@@ -10,7 +10,7 @@
 		012E22A412C98DEF001DB640 /* PipeEventDetailPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 012E22A312C98DEF001DB640 /* PipeEventDetailPane.m */; };
 		012E241312C98F85001DB640 /* PipeEvent.nib in Resources */ = {isa = PBXBuildFile; fileRef = 012E241212C98F85001DB640 /* PipeEvent.nib */; };
 		012E25CF12C995CD001DB640 /* TerminalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 012E25CE12C995CD001DB640 /* TerminalIcon.png */; };
-		01F4451414717363001FF6F6 /* Adium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F4451314717363001FF6F6 /* Adium.framework */; };
+		723B270C1687F30900ABA8E2 /* Adium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723B270B1687F30900ABA8E2 /* Adium.framework */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		A7996F950E79D70B0000BA6C /* PipeEventPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7996F940E79D70B0000BA6C /* PipeEventPlugin.m */; };
 /* End PBXBuildFile section */
@@ -20,11 +20,11 @@
 		012E22A312C98DEF001DB640 /* PipeEventDetailPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PipeEventDetailPane.m; sourceTree = "<group>"; };
 		012E241212C98F85001DB640 /* PipeEvent.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = PipeEvent.nib; sourceTree = "<group>"; };
 		012E25CE12C995CD001DB640 /* TerminalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TerminalIcon.png; sourceTree = "<group>"; };
-		01F4451314717363001FF6F6 /* Adium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Adium.framework; path = ../../../../Applications/Adium.app/Contents/Frameworks/Adium.framework; sourceTree = "<group>"; };
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF630370AF2F00C91783 /* PipeEventPlugin_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipeEventPlugin_Prefix.pch; sourceTree = "<group>"; };
+		723B270B1687F30900ABA8E2 /* Adium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Adium.framework; path = ../adium/DerivedData/Adium/Build/Products/Debug/Adium.framework; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* PipeEventPlugin.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PipeEventPlugin.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7996F930E79D70B0000BA6C /* PipeEventPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipeEventPlugin.h; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
-				01F4451414717363001FF6F6 /* Adium.framework in Frameworks */,
+				723B270C1687F30900ABA8E2 /* Adium.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				01F4451314717363001FF6F6 /* Adium.framework */,
+				723B270B1687F30900ABA8E2 /* Adium.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -215,7 +215,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Adium 2.0/PlugIns/";
 				PRODUCT_NAME = PipeEventPlugin;
-				SDKROOT = macosx10.6;
+				SDKROOT = "";
 				WRAPPER_EXTENSION = AdiumPlugin;
 			};
 			name = Debug;
@@ -238,7 +238,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Adium 2.0/PlugIns/";
 				PRODUCT_NAME = PipeEventPlugin;
-				SDKROOT = macosx10.6;
+				SDKROOT = "";
 				WRAPPER_EXTENSION = AdiumPlugin;
 			};
 			name = Release;
@@ -246,26 +246,31 @@
 		1DEB913F08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "/Users/rkabir/lego/ACTIVE/adium/Source/**";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G4;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = "";
+				USER_HEADER_SEARCH_PATHS = "/Users/rkabir/lego/ACTIVE/adium/Source/**";
 			};
 			name = Debug;
 		};
 		1DEB914008733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "/Users/rkabir/lego/ACTIVE/adium/Source/**";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G4;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = macosx;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = "";
+				USER_HEADER_SEARCH_PATHS = "/Users/rkabir/lego/ACTIVE/adium/Source/**";
 			};
 			name = Release;
 		};
