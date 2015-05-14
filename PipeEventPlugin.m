@@ -59,9 +59,16 @@
 	AIChat		*chat = nil;
 
 	NSTask		*task = [[NSTask alloc] init];
-
+    
 	[task setLaunchPath:command];
-
+    
+    BOOL exists = [[NSFileManager defaultManager] isExecutableFileAtPath:[task launchPath]];
+    
+    if (!exists) {
+        // Quick hack to keep from crashing if the script is not found.
+        return YES;
+    }
+    
 	// for a message event, listObject should become whoever sent the message
 	if ([adium.contactAlertsController isMessageEvent:eventID] &&
 		[userInfo respondsToSelector:@selector(objectForKey:)] &&
